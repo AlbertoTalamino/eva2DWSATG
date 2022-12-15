@@ -1,7 +1,20 @@
+using DAL.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+//We connect our connection with our DBContext 
+builder.Services.AddEntityFrameworkNpgsql()
+    .AddDbContext<BdEvaluacionContext>(options =>
+    {
+        options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreSqlConnection"));
+    });
+
+// To avoid possible errors in the Create view due to Datetime 
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 var app = builder.Build();
 

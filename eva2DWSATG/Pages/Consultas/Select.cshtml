@@ -1,0 +1,76 @@
+﻿@page
+@model eva2DWSATG.Pages.Consultas.SelectModel
+@{
+}
+
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<body class="body">
+    <h2 style="text-align:center">Consulta Empleado</h2>
+
+    <form method="post" id="myForm1">
+        <div class="letters">
+            <br /><br />
+
+            <div class="form-group row">
+                <div class="col-sm-4 col-form-label"></div>
+                <div class="col-sm-4 col-form-label">Consultar alumno por codigo</div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4 col-form-label"></div>
+                <div class="col-sm-4">
+                    <input class="form-control" id="codAlumn" name="codAlumn" placeholder="HYJ33" required>
+                </div>
+            </div>
+
+            <br />
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label"></label>
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-primary" asp-page-handler="codEmpleado">Consultar</button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+    <form method="post" id="myForm2">
+        <div class="letters">
+            <br /><br />
+
+            <div class="form-group row">
+                <div class="col-sm-4 col-form-label"></div>
+                <div class="col-sm-4 col-form-label">Código Evaulación</div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4 col-form-label"></div>
+                <div class="col-sm-4">
+                    <select class="form-control" id="codEV" name="codEV" required>
+                        <option>PR</option>
+                        <option>SG</option>
+                        <option>TC</option>
+                    </select>
+                </div>
+            </div>
+
+            <br />
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label"></label>
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-primary" asp-page-handler="evEmpleado">Consultar</button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+    <br />
+    <p style="text-align:center;">@ViewData["alumn1"]</p>
+
+    <br />
+    <p style="text-align:center;">@ViewData["alumn2"]</p>
+
+</body>
