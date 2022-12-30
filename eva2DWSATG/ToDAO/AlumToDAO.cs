@@ -1,12 +1,12 @@
-﻿namespace DAL.ToDAO
+﻿namespace eva2DWSATG.ToDAO
 {
     public class AlumToDAO
     {
 
         //Método que convierte empleado DTO en empleado DAO
-        public static DAL.Models.EvaTchNotasEvaluación DtoAlumnToDao(DAL.DTOs.AlumDTO alumDTO)
+        public static eva2DWSATG.Models.EvaTchNotasEvaluación DtoAlumnToDao(eva2DWSATG.DTOs.AlumDTO alumDTO)
         {
-            DAL.Models.EvaTchNotasEvaluación alumDAO = new DAL.Models.EvaTchNotasEvaluación();
+            eva2DWSATG.Models.EvaTchNotasEvaluación alumDAO = new eva2DWSATG.Models.EvaTchNotasEvaluación();
 
             alumDAO.MdUuid = alumDTO.Md_uuid;
             alumDAO.MdFch = alumDTO.Md_fch;

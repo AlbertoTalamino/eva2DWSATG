@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DAL.Models;
+namespace eva2DWSATG.Models;
 
 public partial class EvaTchNotasEvaluación
 {

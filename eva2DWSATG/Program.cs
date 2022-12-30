@@ -1,4 +1,4 @@
-using DAL.Models;
+using eva2DWSATG.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

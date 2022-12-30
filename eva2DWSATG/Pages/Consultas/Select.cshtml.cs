@@ -6,7 +6,7 @@ namespace eva2DWSATG.Pages.Consultas
     public class SelectModel : PageModel
     {
         //Obtengo el contexto
-        public DAL.Models.BdEvaluacionContext db = new DAL.Models.BdEvaluacionContext();
+        public eva2DWSATG.Models.BdEvaluacionContext db = new eva2DWSATG.Models.BdEvaluacionContext();
 
         //Obtengo los valores del formulario
         [BindProperty]
@@ -19,18 +19,16 @@ namespace eva2DWSATG.Pages.Consultas
 
         public void OnPostcodEmpleado()
         {
-
-
-
             var alumn = db.EvaTchNotasEvaluacións.Where(e => e.CodAlumno == codAlumn).FirstOrDefault();
 
-
+            //DAO to DTO
+            eva2DWSATG.DTOs.AlumDTO alumnDTO = eva2DWSATG.ToDTO.AlumToDTO.DaoAlumnToDto(alumn);
 
             ViewData["warningMessage"] = " ";
 
-            if (alumn != null)
+            if (alumnDTO != null)
             {
-                ViewData["alumn1"] = alumn;
+                ViewData["alumn1"] = alumnDTO;
             }
             else
             {
@@ -40,16 +38,16 @@ namespace eva2DWSATG.Pages.Consultas
 
         public void OnPostevEmpleado()
         {
-
-
             var alumn = db.EvaTchNotasEvaluacións.Where(e => e.CodEvaluacion == codEV).FirstOrDefault();
 
+            //DAO to DTO
+            eva2DWSATG.DTOs.AlumDTO alumnDTO = eva2DWSATG.ToDTO.AlumToDTO.DaoAlumnToDto(alumn);
 
             ViewData["warningMessage"] = " ";
 
-            if (alumn != null)
+            if (alumnDTO != null)
             {
-                ViewData["alumn2"] = alumn;
+                ViewData["alumn2"] = alumnDTO;
             }
             else
             {

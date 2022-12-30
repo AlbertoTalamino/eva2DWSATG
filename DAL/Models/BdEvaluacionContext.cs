@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace DAL.Models;
+namespace eva2DWSATG.Models;
 
 public partial class BdEvaluacionContext : DbContext
 {

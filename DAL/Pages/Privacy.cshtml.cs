@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace DAL.Pages
+namespace eva2DWSATG.Pages
 {
     public class PrivacyModel : PageModel
     {

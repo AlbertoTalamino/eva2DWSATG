@@ -6,7 +6,7 @@ namespace eva2DWSATG.Pages.Consultas
     public class InsertModel : PageModel
     {
         //Obtengo el contexto
-        public DAL.Models.BdEvaluacionContext db = new DAL.Models.BdEvaluacionContext();
+        public eva2DWSATG.Models.BdEvaluacionContext db = new eva2DWSATG.Models.BdEvaluacionContext();
 
         //Obtengo los valores del formulario
         [BindProperty]
@@ -20,10 +20,10 @@ namespace eva2DWSATG.Pages.Consultas
         public IActionResult OnPostSubmit()
         {
             //Instancia de la clase alumno con los parámetros recogidos por la vista
-            DAL.DTOs.AlumDTO alumnDTO = new DAL.DTOs.AlumDTO(codAlum, NotaEv, codEV);
+            eva2DWSATG.DTOs.AlumDTO alumnDTO = new eva2DWSATG.DTOs.AlumDTO(codAlum, NotaEv, codEV);
 
             //DTO to DAO
-            DAL.Models.EvaTchNotasEvaluación alumnDAO = DAL.ToDAO.AlumToDAO.DtoAlumnToDao(alumnDTO);
+            eva2DWSATG.Models.EvaTchNotasEvaluación alumnDAO = eva2DWSATG.ToDAO.AlumToDAO.DtoAlumnToDao(alumnDTO);
 
             //Insert
             try
@@ -32,14 +32,15 @@ namespace eva2DWSATG.Pages.Consultas
                 db.EvaTchNotasEvaluacións.Add(alumnDAO);
                 db.SaveChanges();
                 Console.WriteLine("Saliendo de insert");
+
+                return RedirectToPage("../Index");
             }
             catch(Exception ex) 
             {
                 Console.WriteLine("Error en insert: " + ex.Message);
             }
-            
 
-            return RedirectToPage("../Index");
+            return null;
         }
 
     }
